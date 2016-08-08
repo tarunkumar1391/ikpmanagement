@@ -39,16 +39,24 @@
                             <li><a data-toggle="tab" href="#otherRegister">PC/Laptop/Others</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Update<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="tab" href="#modifyRouter">Router</a></li>
+                        <li><a data-toggle="tab" href="#modifySwitch">Switch</a></li>
+                    </ul>
+                    </li>
                     <li><a data-toggle="tab" href="#networkInfo">Network Information</a></li>
-                    <li><a data-toggle="tab" href="#modifyEntries">Update</a></li>
+
 
                 </ul>
             </div>
             <div class="col-md-10 col-lg-10">
                <div class="row">
                    <div class="tab-content">
+                       <div class="welcome tab-pane fade in active"><h3>Welcome to the IKP Management console!!!</h3></div>
                        <div id="routerRegister" class="tab-pane fade ">
-                           <div class="container">
+                           <div class="container"> <!--Device registration-->
                                <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
                                    <h3>Register a Router</h3>
                                    <div class="divider"></div>
@@ -73,7 +81,7 @@
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Description:</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <textarea  class="form-control" name="description" required>Give a short description or Mention configuration parameters...</textarea>
+                                           <textarea  class="form-control" name="description" placeholder="Give a short description or Mention configuration parameters..." required></textarea>
                                        </div>
                                    </div>
 
@@ -83,14 +91,9 @@
                                            <button type="reset" class="btn btn-default">Cancel</button>
                                        </div>
                                    </div>
-
-
-
                                </form>
                            </div>
-
                        </div>
-                       <!-- Viewing-->
                        <div id="switchRegister" class="tab-pane fade">
                            <div class="container">
                                <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
@@ -123,7 +126,7 @@
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Description:</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <textarea  class="form-control" name="description" required>Give a short description or Mention configuration parameters...</textarea>
+                                           <textarea  class="form-control" name="description" placeholder="Give a short description or Mention configuration parameters..." required></textarea>
                                        </div>
                                    </div>
 
@@ -133,13 +136,9 @@
                                            <button type="reset" class="btn btn-default">Cancel</button>
                                        </div>
                                    </div>
-
-
-
                                </form>
                            </div>
                        </div>
-                       <!-- Modifying-->
                        <div id="otherRegister" class="tab-pane fade">
                            <div class="container">
                                <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
@@ -172,7 +171,7 @@
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Description:</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <textarea  class="form-control" name="description" required>Give a short description or Mention configuration parameters...</textarea>
+                                           <textarea  class="form-control" name="description" required placeholder="Give a short description or Mention configuration parameters..."></textarea>
                                        </div>
                                    </div>
 
@@ -182,88 +181,40 @@
                                            <button type="reset" class="btn btn-default">Cancel</button>
                                        </div>
                                    </div>
-
-
-
                                </form>
                            </div>
-
                        </div>
+                       <!--View network chart-->
                        <div id="networkInfo" class="tab-pane fade ">
                            <div class="container">
-                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Choose a device:</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <select class="form-control" name="device" required>
-                                               <option>Choose an option...</option>
-                                               <option>Router</option>
-                                               <option>Switch</option>
-                                               <option>PC/Laptop</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Floor No. :</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="floor" placeholder="Enter floor no. " required>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2">Room No. :</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="betreuer" placeholder="Enter room no." required>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Description:</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <textarea  class="form-control" name="description" required>Give a short description or Mention configuration parameters...</textarea>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Type of work:</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <select class="form-control" name="typofwork" required>
-                                               <option>Choose an option...</option>
-                                               <option ng-repeat="x in tow" value="{{x.work}}">{{x.work}}</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Förderung:</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <select  class="form-control" name="foerderung" required>
-                                               <option>Choose an option...</option>
-                                               <option ng-repeat="y in foerd" value="{{y.foer}}">{{y.foer}}</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >TP:</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <select  class="form-control" name="tp" required>
-                                               <option>Choose an option...</option>
-                                               <option ng-repeat="z in tp" value="{{z.typ}}">{{z.typ}}</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Title:</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="title" placeholder="Enter Title" required>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <div class="col-sm-offset-2 col-sm-10">
-                                           <button type="submit" class="btn btn-primary">Submit</button>
-                                           <button type="reset" class="btn btn-default">Cancel</button>
-                                       </div>
-                                   </div>
+                               <div class="table-responsive">
+                                   <table class="table table-hover" ng-controller = "pubController">
+                                       <thead>
+                                       <tr>
+                                           <th>Sno</th>
+                                           <th>Room No.</th>
+                                           <th>Switch</th>
+                                           <th>Port</th>
+                                           <th>VLAN-ID</th>
+                                           <th>VLAN-Name</th>
+                                           <th>Destination Room</th>
+                                           <th>Destination Jack</th>
+                                           <th>Comments</th>
 
+                                       </tr>
+                                       </thead>
+                                       <tbody >
+                                       <tr ng-repeat="entry in entries | filter: pubSearch">
+                                           <td>{{entry.Sno}}</td>
+                                           <td>{{entry.lastName}}</td>
+                                           <td>{{entry.firstName}}</td>
+                                           <td>{{entry.typeofWork}}</td>
+                                           <td>{{entry.Title}}</td>
 
-
-                               </form>
+                                       </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
                            </div>
 
                        </div>
