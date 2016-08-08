@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IKP-Management </title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../scripts/js/angular.min.js"></script>
+    <script src="../scripts/js/ui-bootstrap-tpls-2.0.0.min.js"></script>
+    <script src="../scripts/js/angular-animate.min.js"></script>
+
+
+    <script src="../scripts/js/control.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="../scripts/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="myApp" >
+    <div class="container-fluid"><!--main body container-->
+        <div class="row-fluid"><!--header-->
+            <div class="page-header">
+                    <h3>IKP Management System</h3>
+            </div>
+        </div>
+        <div class="row"><!--Nav + body content-->
+            <div class="col-md-2 col-lg-2 navbg">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Register a device<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-toggle="tab" href="#routerRegister">Router</a></li>
+                            <li><a data-toggle="tab" href="#switchRegister">Switch</a></li>
+                            <li><a data-toggle="tab" href="#otherRegister">PC/Laptop/Others</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="tab" href="#networkInfo">Network Information</a></li>
+                    <li><a data-toggle="tab" href="#modifyEntries">Update</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-10 col-lg-10">
+               <div class="row">
+                   <div class="tab-content">
+                       <div id="routerRegister" class="tab-pane fade ">
+                           <div class="container">
+                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
+                                   <h3>Register a Router</h3>
+                                   <div class="divider"></div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Router:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="router" placeholder="Enter name of the router" required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Floor No. :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="floor" placeholder="Enter floor no. " required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2">Room No. :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="betreuer" placeholder="Enter room no." required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Description:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <textarea  class="form-control" name="description" required>Give a short description or Mention configuration parameters...</textarea>
+                                       </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                       <div class="col-sm-offset-2 col-sm-10">
+                                           <button type="submit" class="btn btn-primary">Submit</button>
+                                           <button type="reset" class="btn btn-default">Cancel</button>
+                                       </div>
+                                   </div>
+
+
+
+                               </form>
+                           </div>
+
+                       </div>
+                       <!-- Viewing-->
+                       <div id="switchRegister" class="tab-pane fade">
+                           <div class="container">
+                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
+                                   <h3>Register a Switch</h3>
+                                   <div class="divider"></div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Switch:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="router" placeholder="Enter name of the switch" required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Total no.of ports :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="swports" placeholder="How many ports switch? " required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Floor No. :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="floor" placeholder="Enter floor no. " required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2">Room No. :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="betreuer" placeholder="Enter room no." required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Description:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <textarea  class="form-control" name="description" required>Give a short description or Mention configuration parameters...</textarea>
+                                       </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                       <div class="col-sm-offset-2 col-sm-10">
+                                           <button type="submit" class="btn btn-primary">Submit</button>
+                                           <button type="reset" class="btn btn-default">Cancel</button>
+                                       </div>
+                                   </div>
+
+
+
+                               </form>
+                           </div>
+                       </div>
+                       <!-- Modifying-->
+                       <div id="otherRegister" class="tab-pane fade">
+                           <div class="container">
+                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
+                                   <h3>Register PC/laptop/others</h3>
+                                   <div class="divider"></div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Device type:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="router" placeholder="Enter name of the device" required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Port label :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="swports" placeholder="How many ports switch? " required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Floor No. :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="floor" placeholder="Enter floor no. " required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2">Room No. :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="betreuer" placeholder="Enter room no." required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Description:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <textarea  class="form-control" name="description" required>Give a short description or Mention configuration parameters...</textarea>
+                                       </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                       <div class="col-sm-offset-2 col-sm-10">
+                                           <button type="submit" class="btn btn-primary">Submit</button>
+                                           <button type="reset" class="btn btn-default">Cancel</button>
+                                       </div>
+                                   </div>
+
+
+
+                               </form>
+                           </div>
+
+                       </div>
+                       <div id="networkInfo" class="tab-pane fade ">
+                           <div class="container">
+                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Choose a device:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <select class="form-control" name="device" required>
+                                               <option>Choose an option...</option>
+                                               <option>Router</option>
+                                               <option>Switch</option>
+                                               <option>PC/Laptop</option>
+                                           </select>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Floor No. :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="floor" placeholder="Enter floor no. " required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2">Room No. :</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="betreuer" placeholder="Enter room no." required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Description:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <textarea  class="form-control" name="description" required>Give a short description or Mention configuration parameters...</textarea>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Type of work:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <select class="form-control" name="typofwork" required>
+                                               <option>Choose an option...</option>
+                                               <option ng-repeat="x in tow" value="{{x.work}}">{{x.work}}</option>
+                                           </select>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Förderung:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <select  class="form-control" name="foerderung" required>
+                                               <option>Choose an option...</option>
+                                               <option ng-repeat="y in foerd" value="{{y.foer}}">{{y.foer}}</option>
+                                           </select>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >TP:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <select  class="form-control" name="tp" required>
+                                               <option>Choose an option...</option>
+                                               <option ng-repeat="z in tp" value="{{z.typ}}">{{z.typ}}</option>
+                                           </select>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Title:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="title" placeholder="Enter Title" required>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <div class="col-sm-offset-2 col-sm-10">
+                                           <button type="submit" class="btn btn-primary">Submit</button>
+                                           <button type="reset" class="btn btn-default">Cancel</button>
+                                       </div>
+                                   </div>
+
+
+
+                               </form>
+                           </div>
+
+                       </div>
+
+                   </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="row"><!--footer-->
+            <nav class="navbar navbar-inverse navbar-fixed-bottom">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h4 class="navbar-brand">All rights reserved @ Institut für kern physik</h4>
+                    </div>
+                </div>
+            </nav>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
