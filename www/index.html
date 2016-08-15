@@ -44,7 +44,15 @@
                     <ul class="dropdown-menu">
                         <li><a data-toggle="tab" href="#modifyRouter">Router</a></li>
                         <li><a data-toggle="tab" href="#modifySwitch">Switch</a></li>
+                        <li><a data-toggle="tab" href="#modifyOthers">PC/Laptop/Others</a></li>
                     </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Device Information<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-toggle="tab" href="#routerInfo">Routers</a></li>
+                            <li><a data-toggle="tab" href="#switchInfo">Switches</a></li>
+                        </ul>
                     </li>
                     <li><a data-toggle="tab" href="#networkInfo">Network Information</a></li>
 
@@ -57,7 +65,7 @@
                        <div class="welcome tab-pane fade in active"><h3>Welcome to the IKP Management console!!!</h3></div>
                        <div id="routerRegister" class="tab-pane fade ">
                            <div class="container"> <!--Device registration-->
-                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
+                               <form role="form" class="form-horizontal" action="../server/router.php" method="post" >
                                    <h3>Register a Router</h3>
                                    <div class="divider"></div>
                                    <div class="form-group">
@@ -69,19 +77,19 @@
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Floor No. :</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="floor" placeholder="Enter floor no. " required>
+                                           <input type="text" class="form-control" name="rfloor" placeholder="Enter floor no. " required>
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label col-sm-2">Room No. :</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="betreuer" placeholder="Enter room no." required>
+                                           <input type="text" class="form-control" name="rroom" placeholder="Enter room no." required>
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Description:</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <textarea  class="form-control" name="description" placeholder="Give a short description or Mention configuration parameters..." required></textarea>
+                                           <textarea  class="form-control" name="rdescription" placeholder="Give a short description or Mention configuration parameters..." required></textarea>
                                        </div>
                                    </div>
 
@@ -96,13 +104,13 @@
                        </div>
                        <div id="switchRegister" class="tab-pane fade">
                            <div class="container">
-                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
+                               <form role="form" class="form-horizontal" action="../server/switch.php" method="post" >
                                    <h3>Register a Switch</h3>
                                    <div class="divider"></div>
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Switch:</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="router" placeholder="Enter name of the switch" required>
+                                           <input type="text" class="form-control" name="switch" placeholder="Enter name of the switch" required>
                                        </div>
                                    </div>
                                    <div class="form-group">
@@ -114,19 +122,19 @@
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Floor No. :</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="floor" placeholder="Enter floor no. " required>
+                                           <input type="text" class="form-control" name="swfloor" placeholder="Enter floor no. " required>
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label col-sm-2">Room No. :</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="betreuer" placeholder="Enter room no." required>
+                                           <input type="text" class="form-control" name="swroom" placeholder="Enter room no." required>
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Description:</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <textarea  class="form-control" name="description" placeholder="Give a short description or Mention configuration parameters..." required></textarea>
+                                           <textarea  class="form-control" name="swdescription" placeholder="Give a short description or Mention configuration parameters..." required></textarea>
                                        </div>
                                    </div>
 
@@ -141,7 +149,7 @@
                        </div>
                        <div id="otherRegister" class="tab-pane fade">
                            <div class="container">
-                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" ng-controller="pubController">
+                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" >
                                    <h3>Register PC/laptop/others</h3>
                                    <div class="divider"></div>
                                    <div class="form-group">
@@ -184,11 +192,70 @@
                                </form>
                            </div>
                        </div>
+                       <!--Device information-->
+                       <div id="routerInfo" class="tab-pane fade ">
+                           <div class="container">
+                               <div class="table-responsive">
+                                   <table class="table table-hover" ng-controller = "routerController">
+                                       <thead>
+                                       <tr>
+                                           <th>Sno</th>
+                                           <th>Router</th>
+                                           <th>Floor</th>
+                                           <th>Room</th>
+                                           <th>Description</th>
+                                       </tr>
+                                       </thead>
+                                       <tbody >
+                                       <tr ng-repeat="entry in entries | filter: pubSearch">
+                                           <td>{{entry.Sno}}</td>
+                                           <td>{{entry.routerName}}</td>
+                                           <td>{{entry.floorNum}}</td>
+                                           <td>{{entry.roomNum}}</td>
+                                           <td>{{entry.description}}</td>
+
+                                       </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                           </div>
+
+                       </div>
+                       <div id="switchInfo" class="tab-pane fade ">
+                           <div class="container">
+                               <div class="table-responsive">
+                                   <table class="table table-hover" ng-controller = "switchController">
+                                       <thead>
+                                       <tr>
+                                           <th>Sno</th>
+                                           <th>Switch</th>
+                                           <th>No. of ports</th>
+                                           <th>Floor</th>
+                                           <th>Room</th>
+                                           <th>Description</th>
+                                       </tr>
+                                       </thead>
+                                       <tbody >
+                                       <tr ng-repeat="entry in entries | filter: pubSearch">
+                                           <td>{{entry.Sno}}</td>
+                                           <td>{{entry.switchName}}</td>
+                                           <td>{{entry.noofPorts}}</td>
+                                           <td>{{entry.floorNum}}</td>
+                                           <td>{{entry.roomNum}}</td>
+                                           <td>{{entry.description}}</td>
+
+                                       </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                           </div>
+
+                       </div>
                        <!--View network chart-->
                        <div id="networkInfo" class="tab-pane fade ">
                            <div class="container">
                                <div class="table-responsive">
-                                   <table class="table table-hover" ng-controller = "pubController">
+                                   <table class="table table-hover" >
                                        <thead>
                                        <tr>
                                            <th>Sno</th>
