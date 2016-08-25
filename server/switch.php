@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 
 // prepare and bind
 $stmt = $conn->prepare("INSERT INTO switches (switchName, noofPorts, floorNum, roomNum, description) VALUES (?, ?, ?, ?,?)");
-$stmt->bind_param("siiis", $switch, $swports, $swfloor, $swroom, $swdescription);
+$stmt->bind_param("siiss", $switch, $swports, $swfloor, $swroom, $swdescription);
 
 function input($data) {
     $data = trim($data);

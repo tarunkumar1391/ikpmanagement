@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 
 // prepare and bind
 $stmt = $conn->prepare("INSERT INTO routers (routerName, floorNum, roomNum, description) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("siis", $router, $rfloor, $rroom, $rdescription);
+$stmt->bind_param("siss", $router, $rfloor, $rroom, $rdescription);
 
 function input($data) {
     $data = trim($data);

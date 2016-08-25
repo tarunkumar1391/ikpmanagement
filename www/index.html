@@ -74,7 +74,7 @@
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Floor No. :</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="rfloor" placeholder="Enter floor no. " required>
+                                           <input type="number" min="-1" max="4" class="form-control" name="rfloor" placeholder="Enter floor no. " required>
                                        </div>
                                    </div>
                                    <div class="form-group">
@@ -113,13 +113,13 @@
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Total no.of ports :</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="swports" placeholder="How many ports switch? " required>
+                                           <input type="number" min="1" class="form-control" name="swports" placeholder="How many ports switch? " required>
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Floor No. :</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="swfloor" placeholder="Enter floor no. " required>
+                                           <input type="number" min="-1" max="4" class="form-control" name="swfloor" placeholder="Enter floor no. " required>
                                        </div>
                                    </div>
                                    <div class="form-group">
@@ -207,13 +207,14 @@
                        <!-- Patching -->
                        <div id="newSwitchPatching" class="tab-pane fade">
                            <div class="container">
-                               <form role="form" class="form-horizontal" action="../server/patchnew.php" method="post" >
+                               <form role="form" class="form-horizontal" action="../server/patchnew.php" method="post" ng-controller="switchController">
                                    <h3>Assign new patch field</h3>
                                    <div class="divider"></div>
                                    <div class="form-group">
                                        <label class="control-label col-sm-2" >Choose floor:</label>
                                        <div class="col-lg-8 col-md-8">
-                                           <select class="form-control" name="patchFloor">
+                                           <!--<select class="form-control" name="patchFloor" ng-model="p" ng-options="c.floorNum for c in entries track by c.Sno">-->
+                                           <select class="form-control" name="patchFloor" ng-model="p" ng-options="c.floorNum for c in entries track by c.Sno">
                                                <option>Choose a floor...</option>
                                                <option value="1">Floor 1</option>
                                                <option value="2">Floor 2</option>
