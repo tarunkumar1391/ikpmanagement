@@ -25,7 +25,7 @@
     <div class="container-fluid"><!--main body container-->
         <div class="row-fluid"><!--header-->
             <div class="page-header">
-                    <h3>IKP Network Management </h3>
+                    <h3>IKP Management System</h3>
             </div>
         </div>
         <div class="row"><!--Nav + body content-->
@@ -36,16 +36,7 @@
                         <ul class="dropdown-menu">
                             <li><a data-toggle="tab" href="#routerRegister">Router</a></li>
                             <li><a data-toggle="tab" href="#switchRegister">Switch</a></li>
-                            <li><a data-toggle="tab" href="#otherRegister">PC/Laptop/Others</a></li>
                         </ul>
-                    </li>
-                    <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Update<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a data-toggle="tab" href="#modifyRouter">Router</a></li>
-                        <li><a data-toggle="tab" href="#modifySwitch">Switch</a></li>
-                        <li><a data-toggle="tab" href="#modifyOthers">PC/Laptop/Others</a></li>
-                    </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Device Information<span class="caret"></span></a>
@@ -54,17 +45,24 @@
                             <li><a data-toggle="tab" href="#switchInfo">Switches</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Patching<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="tab" href="#newSwitchPatching">New</a></li>
+                        <li><a data-toggle="tab" href="#viewSwitchpatching">View</a></li>
+                        <li><a data-toggle="tab" href="#updateSwitchpatching">Update</a></li>
+                    </ul>
+                    </li>
                     <li><a data-toggle="tab" href="#networkInfo">Network Information</a></li>
-
-
                 </ul>
             </div>
             <div class="col-md-10 col-lg-10">
                <div class="row">
                    <div class="tab-content">
-                       <div class="welcome tab-pane fade in active"><h3>Welcome to the IKP Network Management!!!</h3></div>
+                       <div class="welcome tab-pane fade in active"><h3>Welcome to the IKP Management console!!!</h3></div>
                        <div id="routerRegister" class="tab-pane fade ">
-                           <div class="container"> <!--Device registration-->
+                           <!--Device registration-->
+                           <div class="container">
                                <form role="form" class="form-horizontal" action="../server/router.php" method="post" >
                                    <h3>Register a Router</h3>
                                    <div class="divider"></div>
@@ -147,51 +145,7 @@
                                </form>
                            </div>
                        </div>
-                       <div id="otherRegister" class="tab-pane fade">
-                           <div class="container">
-                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" >
-                                   <h3>Register PC/laptop/others</h3>
-                                   <div class="divider"></div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Device type:</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="router" placeholder="Enter name of the device" required>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Port label :</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="swports" placeholder="How many ports switch? " required>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Floor No. :</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="floor" placeholder="Enter floor no. " required>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2">Room No. :</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <input type="text" class="form-control" name="betreuer" placeholder="Enter room no." required>
-                                       </div>
-                                   </div>
-                                   <div class="form-group">
-                                       <label class="control-label col-sm-2" >Description:</label>
-                                       <div class="col-lg-8 col-md-8">
-                                           <textarea  class="form-control" name="description" required placeholder="Give a short description or Mention configuration parameters..."></textarea>
-                                       </div>
-                                   </div>
 
-                                   <div class="form-group">
-                                       <div class="col-sm-offset-2 col-sm-10">
-                                           <button type="submit" class="btn btn-primary">Submit</button>
-                                           <button type="reset" class="btn btn-default">Cancel</button>
-                                       </div>
-                                   </div>
-                               </form>
-                           </div>
-                       </div>
                        <!--Device information-->
                        <div id="routerInfo" class="tab-pane fade ">
                            <div class="container">
@@ -250,6 +204,98 @@
                                </div>
                            </div>
 
+                       </div>
+                       <!-- Patching -->
+                       <div id="newSwitchPatching" class="tab-pane fade">
+                           <div class="container">
+                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" >
+                                   <h3>Assign new patch field</h3>
+                                   <div class="divider"></div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Choose floor:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <select class="form-control" name="patchFloor">
+                                               <option>Choose a floor...</option>
+                                               <option value="1">Floor 1</option>
+                                               <option value="2">Floor 2</option>
+                                               <option value="3">Floor 3</option>
+                                               <option value="4">Floor 4</option>
+                                           </select>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Switch Room No:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <select class="form-control" name="patchRoom">
+                                               <option>Choose a room...</option>
+                                               <option value="101">101</option>
+                                               <option value="201">201</option>
+                                               <option value="301">301</option>
+                                               <option value="401">401</option>
+                                           </select>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Choose a switch</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <select class="form-control" name="patchSwitch">
+                                               <option>Choose a switch...</option>
+                                               <option value="101">Switch 1</option>
+                                               <option value="201">Switch 2</option>
+                                           </select>
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2">Enter Port No:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="patchPortnum" placeholder="Enter Port no." >
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Vlan Id:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="number" class="form-control" name="patchVlanid" placeholder="Enter vlan id" >
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Vlan name:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="patchVlanname" placeholder="Enter vlan name" >
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Patch field:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="patchField" placeholder="Enter patch field (source)" >
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Destination room:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="patchDestroom" placeholder="Enter destination room" >
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Destination jack:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <input type="text" class="form-control" name="patchDestjack" placeholder="Enter destination jack" >
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-sm-2" >Comments:</label>
+                                       <div class="col-lg-8 col-md-8">
+                                           <textarea class="form-control" name="patchComm" placeholder="Enter your comments here"></textarea>
+                                       </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                       <div class="col-sm-offset-2 col-sm-10">
+                                           <button type="submit" class="btn btn-primary">Submit</button>
+                                           <button type="reset" class="btn btn-default">Cancel</button>
+                                       </div>
+                                   </div>
+                               </form>
+                           </div>
                        </div>
                        <!--View network chart-->
                        <div id="networkInfo" class="tab-pane fade ">

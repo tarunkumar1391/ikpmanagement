@@ -21,3 +21,8 @@
 .welcome{
     text-align: center;
 }
+body {
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 10%;
+}
