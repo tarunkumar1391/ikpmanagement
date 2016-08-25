@@ -53,7 +53,6 @@
                         <li><a data-toggle="tab" href="#updateSwitchpatching">Update</a></li>
                     </ul>
                     </li>
-                    <li><a data-toggle="tab" href="#networkInfo">Network Information</a></li>
                 </ul>
             </div>
             <div class="col-md-10 col-lg-10">
@@ -208,7 +207,7 @@
                        <!-- Patching -->
                        <div id="newSwitchPatching" class="tab-pane fade">
                            <div class="container">
-                               <form role="form" class="form-horizontal" action="../server/main.php" method="post" >
+                               <form role="form" class="form-horizontal" action="../server/patchnew.php" method="post" >
                                    <h3>Assign new patch field</h3>
                                    <div class="divider"></div>
                                    <div class="form-group">
@@ -297,19 +296,26 @@
                                </form>
                            </div>
                        </div>
-                       <!--View network chart-->
-                       <div id="networkInfo" class="tab-pane fade ">
+                       <div id="viewSwitchpatching" class="tab-pane fade " >
                            <div class="container">
+                               <form class="form" role="form">
+                                   <div class="form-group ">
+                                       <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="patchSearch">
+                                   </div>
+
+                               </form>
                                <div class="table-responsive">
-                                   <table class="table table-hover" >
+                                   <table class="table table-hover" ng-controller = "switchpatchingController">
                                        <thead>
                                        <tr>
                                            <th>Sno</th>
-                                           <th>Room No.</th>
-                                           <th>Switch</th>
-                                           <th>Port</th>
+                                           <th>Floor No.</th>
+                                           <th>Switch Room No.</th>
+                                           <th>Switch Name</th>
+                                           <th>Port num</th>
                                            <th>VLAN-ID</th>
                                            <th>VLAN-Name</th>
+                                           <th>Source</th>
                                            <th>Destination Room</th>
                                            <th>Destination Jack</th>
                                            <th>Comments</th>
@@ -317,13 +323,18 @@
                                        </tr>
                                        </thead>
                                        <tbody >
-                                       <tr ng-repeat="entry in entries | filter: pubSearch">
+                                       <tr ng-repeat="entry in entries | filter: patchSearch">
                                            <td>{{entry.Sno}}</td>
-                                           <td>{{entry.lastName}}</td>
-                                           <td>{{entry.firstName}}</td>
-                                           <td>{{entry.typeofWork}}</td>
-                                           <td>{{entry.Title}}</td>
-
+                                           <td>{{entry.floorNum}}</td>
+                                           <td>{{entry.switchRoom}}</td>
+                                           <td>{{entry.switchName}}</td>
+                                           <td>{{entry.switchPortnum}}</td>
+                                           <td>{{entry.vlanId}}</td>
+                                           <td>{{entry.vlanName}}</td>
+                                           <td>{{entry.patchFieldsrc}}</td>
+                                           <td>{{entry.destinationRoom}}</td>
+                                           <td>{{entry.destinationJack}}</td>
+                                           <td>{{entry.comments}}</td>
                                        </tr>
                                        </tbody>
                                    </table>

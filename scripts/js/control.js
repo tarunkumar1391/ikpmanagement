@@ -16,6 +16,13 @@ app.controller('switchController',function ($scope,$http) {
         console.log($scope.entries);
     })
 });
+app.controller('switchpatchingController',function ($scope,$http) {
+
+    $http.get('../server/fetchpatch.php').then(function (response) {
+        $scope.entries = response.data.records;
+        console.log($scope.entries);
+    })
+});
 app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
 
 
