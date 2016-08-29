@@ -1,28 +1,47 @@
 /**
  * Created by Haus-IT on 7/6/2016.
  */
-var app = angular.module('myApp',['ui.bootstrap','ngAnimate']);
+var app = angular.module('myApp',['ui.bootstrap','ngAnimate','angular.filter']);
+
 app.controller('routerController',function ($scope,$http) {
 
     $http.get('../server/fetchrouters.php').then(function (response) {
         $scope.entries = response.data.records;
-        console.log($scope.entries);
+
     })
 });
+
 app.controller('switchController',function ($scope,$http) {
 
     $http.get('../server/fetchswitches.php').then(function (response) {
         $scope.entries = response.data.records;
-        console.log($scope.entries);
+        
     })
 });
+
 app.controller('switchpatchingController',function ($scope,$http) {
 
     $http.get('../server/fetchpatch.php').then(function (response) {
         $scope.entries = response.data.records;
-        console.log($scope.entries);
+
     })
 });
+
+app.controller('patchingbasicController',function ($scope,$http) {
+
+    $http.get('../server/patchbasic.php').then(function (response) {
+        $scope.floor = response.data.floor;
+
+    })
+    $http.get('../server/patchbasic2.php').then(function (response) {
+        $scope.room = response.data.room;
+    })
+    $http.get('../server/patchbasic3.php').then(function (response) {
+        $scope.switch = response.data.switch;
+
+    })
+});
+
 app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
 
 
