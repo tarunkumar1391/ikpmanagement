@@ -19,20 +19,13 @@ app.controller('switchController',function ($scope,$http) {
     })
 });
 
-app.controller('switchpatchingController',function ($scope,$http) {
-
-    $http.get('../server/fetchpatch.php').then(function (response) {
-        $scope.entries = response.data.records;
-
-    })
-});
-
-app.controller('patchingbasicController',function ($scope,$http) {
+app.controller('switchpatchingController',function ($scope,$http, $uibModal, $log) {
 
     $http.get('../server/patchbasic.php').then(function (response) {
-        $scope.floor = response.data.floor;
+        $scope.floors = response.data.floors;
 
     })
+
     $http.get('../server/patchbasic2.php').then(function (response) {
         $scope.room = response.data.room;
     })
@@ -40,13 +33,10 @@ app.controller('patchingbasicController',function ($scope,$http) {
         $scope.switch = response.data.switch;
 
     })
-});
-
-app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
 
 
-    $http.get('../server/fetch.php').then(function (response) {
 
+    $http.get('../server/fetchpatch.php').then(function (response) {
         $scope.entries = response.data.records;
 
         $scope.animationsEnabled = true;
@@ -79,8 +69,25 @@ app.controller('pubmodController',function ($scope,$http,$uibModal, $log) {
             $scope.animationsEnabled = !$scope.animationsEnabled;
         };
 
-    });
+    })
 });
+
+app.controller('patchingbasicController',function ($scope,$http) {
+
+    $http.get('../server/patchbasic.php').then(function (response) {
+        $scope.floors = response.data.floors;
+
+    })
+    $http.get('../server/patchbasic2.php').then(function (response) {
+        $scope.room = response.data.room;
+    })
+    $http.get('../server/patchbasic3.php').then(function (response) {
+        $scope.switch = response.data.switch;
+
+    })
+});
+
+
 app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
 
     $scope.items = items;

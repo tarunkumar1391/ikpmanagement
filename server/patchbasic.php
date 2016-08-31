@@ -20,7 +20,7 @@ while($rs = $result1->fetch_array(MYSQLI_ASSOC)) {
     $outp1 .= '{"Sno":"'  . $rs["sno"] . '",';
     $outp1 .= '"floorNum":"'. $rs["floorNum"] . '"}';
 }
-$outp1 ='{"floor":['.$outp1.']}';
+$outp1 ='{"floors":['.$outp1.']}';
 
 
 

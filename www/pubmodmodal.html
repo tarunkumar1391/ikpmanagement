@@ -2,80 +2,91 @@
     <div class="modal-header">
         <h3 class="modal-title">Entry No: {{items.Sno}} </h3>
     </div>
-    <div class="modal-body" ng-controller="pubmodController">
-        <form role="form" class="form-horizontal" action="../server/update.php" method="post">
+    <div class="modal-body" ng-controller="switchpatchingController">
+        <form role="form" class="form-horizontal" action="../server/updateswpatch.php" method="post">
+            <h3>Update patch field</h3>
+            <div class="divider"></div>
             <div class="form-group">
-                <label class="control-label col-sm-2" >Name:</label>
+                <label class="control-label col-sm-2" >Choose floor:</label>
                 <div class="col-lg-8 col-md-8">
+                    <!--<select class="form-control" name="patchFloor" ng-model="p" ng-options="c.floorNum for c in entries track by c.Sno">-->
                     <input type="hidden" class="form-control" name="sno"  value="{{items.Sno}}">
-                    <input type="text" class="form-control" name="lname"  value="{{items.lastName}}" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" >First name:</label>
-                <div class="col-lg-8 col-md-8">
-                    <input type="text" class="form-control" name="fname" value="{{items.firstName}}" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2">Betreuer:</label>
-                <div class="col-lg-8 col-md-8">
-                    <input type="text" class="form-control" name="betreuer" value="{{items.Betreuer}}" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" >End date:</label>
-                <div class="col-lg-8 col-md-8">
-                    <input type="date" class="form-control" name="enddate" value="{{items.endDate}}" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" >Type of work:</label>
-                <div class="col-lg-8 col-md-8">
-                    <select class="form-control" name="typofwork" ng-model="items.typeofWork" required>
-                        <option>Choose an option...</option>
-                        <option value="{{val.type}}" ng-repeat="val in typofwork" >{{val.type}}</option>
+                    <select class="form-control" name="swFloor" ng-model="items.floorNum">
+                        <option ng-disabled="true" ng-selected="true" value="">Choose a floor...</option>
+                        <option value="{{fl.floorNum}}" ng-repeat="fl in floors | unique:'floorNum'">{{fl.floorNum}}</option>
+
 
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" >Förderung:</label>
+                <label class="control-label col-sm-2" >Switch Room No:</label>
                 <div class="col-lg-8 col-md-8">
-                    <select  class="form-control" name="foerderung" ng-model="items.Foerderung" required>
-                        <option>Choose an option...</option>
-                        <option value="{{foerd.type}}" ng-repeat="foerd in foerderung">{{foerd.type}}</option>
+                    <select class="form-control" name="swRoom" ng-model="items.switchRoom" >
+                        <option ng-disabled="true" ng-selected="true" value="">Choose a room...</option>
+                        <option value="{{swr.switchRoom}}" ng-repeat="swr in room | filter:{floorNum:items.floorNum} | unique:'switchRoom'">{{swr.switchRoom}}</option>
 
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" >TP:</label>
+                <label class="control-label col-sm-2" >Choose a switch</label>
                 <div class="col-lg-8 col-md-8">
-                    <select  class="form-control" name="tp" ng-model="items.Tp" required>
-                        <option>Choose an option...</option>
-                        <option value="{{t.type}}" ng-repeat="t in tp">{{t.type}}</option>
-
+                    <select class="form-control" name="patchSwitch" ng-model="items.switchName" >
+                        <option ng-disabled="true" ng-selected="true" value="">Choose a switch...</option>
+                        <option value="{{swt.switchName}}" ng-repeat="swt in switch | filter:{switchRoom:items.switchRoom}">{{swt.switchName}}</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" >Title:</label>
+                <label class="control-label col-sm-2">Enter Port No:</label>
                 <div class="col-lg-8 col-md-8">
-                    <input type="text" class="form-control" name="title" placeholder="Enter Title" value="{{items.Title}}" required>
+                    <input type="text" class="form-control" name="patchPortnum" placeholder="Enter Port no." value="{{items.switchPortnum}}">
                 </div>
             </div>
-            <!--<div class="form-group">-->
-                <!--<div class="col-sm-offset-2 col-sm-10">-->
-                    <!--<button type="submit" class="btn btn-primary">Submit</button>-->
-                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
-                <!--</div>-->
-            <!--</div>-->
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="submit" >Update</button>
-                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Vlan Id:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="number" class="form-control" name="patchVlanid" placeholder="Enter vlan id" value="{{items.vlanId}}" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Vlan name:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="text" class="form-control" name="patchVlanname" placeholder="Enter vlan name" value="{{items.vlanName}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Patch field:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="text" class="form-control" name="patchField" placeholder="Enter patch field (source)" value="{{items.patchFieldsrc}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Destination room:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="text" class="form-control" name="patchDestroom" placeholder="Enter destination room" value="{{items.destinationRoom}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Destination jack:</label>
+                <div class="col-lg-8 col-md-8">
+                    <input type="text" class="form-control" name="patchDestjack" placeholder="Enter destination jack" value="{{items.destinationJack}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" >Comments:</label>
+                <div class="col-lg-8 col-md-8">
+                    <textarea class="form-control" name="patchComm" placeholder="Enter your comments here" >{{items.comments}}</textarea>
+                </div>
             </div>
 
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-default" ng-click="cancel()">Cancel</button>
+                </div>
+            </div>
 
         </form>
 
