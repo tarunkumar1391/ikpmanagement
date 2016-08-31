@@ -15,7 +15,7 @@ app.controller('switchController',function ($scope,$http) {
 
     $http.get('../server/fetchswitches.php').then(function (response) {
         $scope.entries = response.data.records;
-        
+
     })
 });
 

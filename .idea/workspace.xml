@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="559f2d2e-3913-4dd9-98b0-ee2718e12717" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/patchbasic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/patchbasic2.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/patchbasic3.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/js/control.js" afterPath="$PROJECT_DIR$/scripts/js/control.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-    </list>
+    <list default="true" id="559f2d2e-3913-4dd9-98b0-ee2718e12717" name="Default" comment="" />
     <ignored path="ikpmanagement.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -42,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-693">
-              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -274,16 +267,16 @@
       <workItem from="1470728497050" duration="49000" />
       <workItem from="1471285343210" duration="3081000" />
       <workItem from="1472124207674" duration="11764000" />
-      <workItem from="1472460046440" duration="18367000" />
+      <workItem from="1472460046440" duration="18498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48918000" />
+    <option name="totallyTimeSpent" value="49049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14010416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -523,7 +516,7 @@
     <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-693">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
