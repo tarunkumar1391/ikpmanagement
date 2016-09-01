@@ -176,7 +176,7 @@
                                        </tr>
                                        </thead>
                                        <tbody >
-                                       <tr ng-repeat="entry in entries | filter: pubSearch">
+                                       <tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "open('lg');">
                                            <td>{{entry.Sno}}</td>
                                            <td>{{entry.routerName}}</td>
                                            <td>{{entry.floorNum}}</td>
@@ -205,7 +205,7 @@
                                        </tr>
                                        </thead>
                                        <tbody >
-                                       <tr ng-repeat="entry in entries | filter: pubSearch">
+                                       <tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "open('lg');">
                                            <td>{{entry.Sno}}</td>
                                            <td>{{entry.switchName}}</td>
                                            <td>{{entry.noofPorts}}</td>

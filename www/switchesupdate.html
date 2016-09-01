@@ -1,0 +1,59 @@
+
+<div class="modal-header">
+    <h3 class="modal-title">Entry No: {{items.Sno}} </h3>
+</div>
+<div class="modal-body" ng-controller="switchpatchingController">
+    <form role="form" class="form-horizontal" action="../server/updateswitch.php" method="post">
+        <h4>Update Switch</h4>
+        <div class="divider"></div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Switch:</label>
+            <div class="col-lg-8 col-md-8">
+                <input type="hidden" class="form-control" name="sno"  value="{{items.Sno}}">
+                <input type="text" class="form-control" name="switch" placeholder="Enter name of the switch" required value="{{items.switchName}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Total  ports :</label>
+            <div class="col-lg-8 col-md-8">
+                <input type="number" min="1" class="form-control" name="swports" placeholder="How many ports switch? " value="{{items.noofPorts}}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Floor No. :</label>
+            <div class="col-lg-8 col-md-8">
+                <select class="form-control" name="swfloor" placeholder="Enter floor no. " required ng-model="items.floorNum">
+                    <option>Choose a floor</option>
+                    <option value="-1">Underground</option>
+                    <option value="0">Ground</option>
+                    <option value="1">1st</option>
+                    <option value="2">2nd</option>
+                    <option value="3">3rd</option>
+                    <option value="4">4th</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Room No. :</label>
+            <div class="col-lg-8 col-md-8">
+                <input type="text" class="form-control" name="swroom" placeholder="Enter room no." value="{{items.roomNum}}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Description:</label>
+            <div class="col-lg-8 col-md-8">
+                <textarea  class="form-control" name="swdescription" placeholder="Give a short description or Mention configuration parameters..." required>{{items.description}}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-default" ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
