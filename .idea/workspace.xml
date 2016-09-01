@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="559f2d2e-3913-4dd9-98b0-ee2718e12717" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/updaterouter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/updateswitch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/routerupdate.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server/main.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/js/control.js" afterPath="$PROJECT_DIR$/scripts/js/control.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/pubmodmodal.html" afterPath="$PROJECT_DIR$/www/pubmodmodal.html" />
     </list>
     <ignored path="ikpmanagement.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,7 +47,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="switchesupdate.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="switchesupdate.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/switchesupdate.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -64,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="control.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="control.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
+            <state relative-caret-position="-200">
+              <caret line="135" column="12" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -106,8 +99,8 @@
         <option value="$PROJECT_DIR$/www/pubmodmodal.html" />
         <option value="$PROJECT_DIR$/server/updaterouter.php" />
         <option value="$PROJECT_DIR$/server/updateswitch.php" />
-        <option value="$PROJECT_DIR$/scripts/js/control.js" />
         <option value="$PROJECT_DIR$/www/switchesupdate.html" />
+        <option value="$PROJECT_DIR$/scripts/js/control.js" />
       </list>
     </option>
   </component>
@@ -300,15 +293,15 @@
       <workItem from="1472124207674" duration="11764000" />
       <workItem from="1472460046440" duration="18498000" />
       <workItem from="1472651177781" duration="8798000" />
-      <workItem from="1472724003424" duration="3406000" />
+      <workItem from="1472724003424" duration="4299000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61253000" />
+    <option name="totallyTimeSpent" value="62146000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1684" height="1026" extended-state="0" />
+    <frame x="-8" y="0" width="1684" height="1026" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.118705034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -582,14 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/fetchrouters.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -647,6 +632,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200">
+          <caret line="135" column="12" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="12" />
           <folding />
         </state>
       </provider>

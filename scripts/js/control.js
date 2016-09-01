@@ -13,7 +13,7 @@ app.controller('routerController',function ($scope,$http, $uibModal, $log) {
         $scope.open = function(size){
 
             $scope.items = this.entry;
-            console.log($scope.items);
+
 
 
             var modalInstance = $uibModal.open({
@@ -64,7 +64,7 @@ app.controller('switchController',function ($scope,$http,  $uibModal, $log) {
         $scope.open = function(size){
 
             $scope.items = this.entry;
-            console.log($scope.items);
+
 
 
             var modalInstance = $uibModal.open({
@@ -91,7 +91,7 @@ app.controller('switchController',function ($scope,$http,  $uibModal, $log) {
         };
     })
 
-    
+
 });
 app.controller('switchModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
 
@@ -133,7 +133,7 @@ app.controller('switchpatchingController',function ($scope,$http, $uibModal, $lo
         $scope.open = function(size){
 
             $scope.items = this.entry;
-            console.log($scope.items);
+            
 
 
             var modalInstance = $uibModal.open({
