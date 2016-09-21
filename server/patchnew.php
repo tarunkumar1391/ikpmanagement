@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 
 // prepare and bind
 $stmt = $conn->prepare("INSERT INTO patching (floorNum, switchRoom, switchName, switchPortnum, vlanId, vlanName, patchFieldsrc, destinationRoom, destinationJack, comments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("issiisssss", $patchFloor, $patchRoom, $patchSwitch, $patchPortnum, $patchVlanid, $patchVlanname, $patchField, $patchDestroom, $patchDestjack, $patchComm );
+$stmt->bind_param("ssssssssss", $patchFloor, $patchRoom, $patchSwitch, $patchPortnum, $patchVlanid, $patchVlanname, $patchField, $patchDestroom, $patchDestjack, $patchComm );
 
 function input($data) {
     $data = trim($data);
@@ -32,11 +32,11 @@ function input($data) {
 
 // set parameters and execute
 if($_SERVER['REQUEST_METHOD'] == "POST") {
-    $patchFloor = isset($_POST['patchFloor']) ? input($_POST['patchFloor']) : "0";
-    $patchRoom = isset($_POST['patchRoom']) ? input($_POST['patchRoom']) : "0";
-    $patchSwitch = isset($_POST['patchSwitch']) ? input($_POST['patchSwitch']) : "0";
-    $patchPortnum = isset($_POST['patchPortnum']) ? input($_POST['patchPortnum']) : "0";
-    $patchVlanid = isset($_POST['patchVlanid']) ? input($_POST['patchVlanid']) : "0";
+    $patchFloor = isset($_POST['patchFloor']) ? input($_POST['patchFloor']) : "X";
+    $patchRoom = isset($_POST['patchRoom']) ? input($_POST['patchRoom']) : "X";
+    $patchSwitch = isset($_POST['patchSwitch']) ? input($_POST['patchSwitch']) : "X";
+    $patchPortnum = isset($_POST['patchPortnum']) ? input($_POST['patchPortnum']) : "X";
+    $patchVlanid = isset($_POST['patchVlanid']) ? input($_POST['patchVlanid']) : "X";
     $patchVlanname = isset($_POST['patchVlanname']) ? input($_POST['patchVlanname']) : "0";
     $patchField = isset($_POST['patchField']) ? input($_POST['patchField']) : "0";
     $patchDestroom = isset($_POST['patchDestroom']) ? input($_POST['patchDestroom']) : "0";

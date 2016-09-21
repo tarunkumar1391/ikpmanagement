@@ -26,7 +26,7 @@
     <div class="container-fluid"><!--main body container-->
         <div class="row-fluid"><!--header-->
             <div class="page-header">
-                    <h3>IKP Management System</h3>
+                    <h3>IKP Switching & Patching</h3>
             </div>
         </div>
         <div class="row"><!--Nav + body content-->
@@ -192,8 +192,13 @@
                        </div>
                        <div id="switchInfo" class="tab-pane fade ">
                            <div class="container">
+                               <form role="form" class="form-horizontal"  method="post">
+                                   <div class="form-group ">
+                                       <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="pubSearch">
+                                   </div>
+                               </form>
                                <div class="table-responsive">
-                                   <table class="table table-hover" ng-controller = "switchController">
+                                   <table class="table table-hover" ng-controller = "switchController" >
                                        <thead>
                                        <tr>
                                            <th>Sno</th>
@@ -205,7 +210,7 @@
                                        </tr>
                                        </thead>
                                        <tbody >
-                                       <tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "open('lg');">
+                                       <tr ng-repeat="entry in entries | filter: pubSearch | filter: filterByFloor" ng-click = "open('lg');">
                                            <td>{{entry.Sno}}</td>
                                            <td>{{entry.switchName}}</td>
                                            <td>{{entry.noofPorts}}</td>
@@ -233,8 +238,6 @@
                                            <select class="form-control" name="patchFloor" ng-model="floorng">
                                                <option ng-disabled="true" ng-selected="true" value="">Choose a floor...</option>
                                                <option ng-repeat="fl in floors | unique:'floorNum'">{{fl.floorNum}}</option>
-
-
                                            </select>
                                        </div>
                                    </div>
@@ -311,8 +314,8 @@
                        </div>
                        <div id="viewSwitchpatching" class="tab-pane fade " >
                            <div class="container">
-                               <form class="form" role="form">
-                                   <div class="form-group ">
+                               <form class="form-horizontal" role="form">
+                                   <div class="form-group">
                                        <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="patchSearch">
                                    </div>
 
@@ -322,7 +325,6 @@
                                        <thead>
                                        <tr>
                                            <th>Sno</th>
-                                           <th>Floor No.</th>
                                            <th>Switch Room No.</th>
                                            <th>Switch Name</th>
                                            <th>Port num</th>
@@ -336,9 +338,8 @@
                                        </tr>
                                        </thead>
                                        <tbody >
-                                       <tr ng-repeat="entry in entries | filter: patchSearch" ng-click = "open('lg');">
+                                       <tr ng-repeat="entry in entries | filter: patchSearch " ng-click = "open('lg');">
                                            <td>{{entry.Sno}}</td>
-                                           <td>{{entry.floorNum}}</td>
                                            <td>{{entry.switchRoom}}</td>
                                            <td>{{entry.switchName}}</td>
                                            <td>{{entry.switchPortnum}}</td>
